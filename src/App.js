@@ -1,49 +1,37 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import { Card } from './components/card/Card';
+import { Menu } from './components/menu/Menu';
+
 import { useLocalStorage } from './hooks/useLocalStorage';
 
+import { fetchCocktail } from './domain/cocktails.service';
+import { default as CocktailReducer, initialState } from './domain/cocktails.reducer';
+
+
 function App() {
-  const [cocktail, setCocktail] = useState();
+  const [state, dispatch] = useReducer(CocktailReducer, initialState);
   const [cocktails, setCocktails] = useLocalStorage('cocktails', [])
-  const [isLoading, setIsLoading] = useState(true);
 
   const likeCocktail = (likedCocktail) => {
     setCocktails([...cocktails, likedCocktail]);
   }
 
   const retry = () => {
-    fetchCocktail();
+    fetchCocktail(dispatch, cocktails);
   }
-
-  const fetchCocktail = useCallback(() => {
-    setIsLoading(true);
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
-      .then(res => res.json())
-      .then(res => res.drinks && res.drinks[0])
-      .then(cocktail => {
-        if (cocktails.find(c => c.idDrink === cocktail.idDrink)) {
-          console.log("retry");
-          fetchCocktail();
-        } else {
-          setIsLoading(false);
-          setCocktail(cocktail);
-        }
-      })
-      .catch(e => console.error(e))
-  }
-    , [cocktails])
 
   useEffect(() => {
-    fetchCocktail();
-  }, [fetchCocktail])
+    fetchCocktail(dispatch, cocktails);
+  }, [cocktails])
 
   return (
     <div className="App">
       {<Card
-        isLoading={(isLoading || !cocktail)}
-        cocktail={cocktail}
+        isLoading={(state.pending || !state.cocktail)}
+        cocktail={state.cocktail}
         onLike={likeCocktail}
         onRetry={retry} />}
+      <Menu />
     </div>
   );
 }
