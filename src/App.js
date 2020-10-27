@@ -2,7 +2,7 @@ import { useEffect, useReducer } from 'react';
 import { Card } from './components/card/Card';
 import { Menu } from './components/menu/Menu';
 
-import { useLocalStorage } from './hooks/useLocalStorage';
+import { useCocktailsStorage } from './hooks/useCocktailsStorage';
 
 import { fetchCocktail } from './domain/cocktails.service';
 import { default as CocktailReducer, initialState } from './domain/cocktails.reducer';
@@ -10,10 +10,10 @@ import { default as CocktailReducer, initialState } from './domain/cocktails.red
 
 function App() {
   const [state, dispatch] = useReducer(CocktailReducer, initialState);
-  const [cocktails, setCocktails] = useLocalStorage('cocktails', [])
+  const [cocktails, likeCocktail] = useCocktailsStorage([])
 
-  const likeCocktail = (likedCocktail) => {
-    setCocktails([...cocktails, likedCocktail]);
+  const onLike = (cocktail) => {
+    likeCocktail(cocktail);
   }
 
   const retry = () => {
@@ -29,7 +29,7 @@ function App() {
       {<Card
         isLoading={(state.pending || !state.cocktail)}
         cocktail={state.cocktail}
-        onLike={likeCocktail}
+        onLike={onLike}
         onRetry={retry} />}
       <Menu />
     </div>

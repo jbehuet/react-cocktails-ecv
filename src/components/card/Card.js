@@ -5,8 +5,6 @@ import './Card.css';
 const STR_INGREDIENT = "strIngredient";
 
 export function Card({ cocktail, onLike, onRetry, isLoading }) {
-    console.log(cocktail);
-
     const getIngredients = () => {
         return Object.keys(cocktail)
             .filter(key => key.startsWith(STR_INGREDIENT))

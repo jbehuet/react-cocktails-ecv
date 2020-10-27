@@ -3,10 +3,11 @@ import { types } from './cocktails.actions';
 export const initialState = {
     pending: false,
     cocktail: null,
+    cocktails: [],
     error: null
 }
 
-export default function reducer (state, action) {
+export default function reducer(state, action) {
     switch (action.type) {
         case types.FETCH_COCKTAIL_PENDING:
             return {
@@ -24,6 +25,14 @@ export default function reducer (state, action) {
                 ...state,
                 pending: false,
                 error: action.error
+            }
+        case types.LIKE_COCKTAIL:
+            return {
+                ...state,
+                cocktails: [
+                    ...state.cocktails,
+                    action.payload
+                ]
             }
         default:
             return state;

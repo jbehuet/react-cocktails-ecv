@@ -14,7 +14,7 @@ export function fetchCocktail(dispatch, cocktails) {
         .then(cocktail => {
             if (cocktails.find(c => c.idDrink === cocktail.idDrink)) {
                 console.log("retry");
-                dispatch(fetchCocktailPending());
+                fetchCocktail(dispatch, cocktails)
             } else {
                 dispatch(fetchCocktailSuccess(cocktail));
             }
