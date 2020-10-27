@@ -20,7 +20,6 @@ export function useCocktailsStorage(initialValue) {
 
     const like = cocktail => {
         try {
-            console.log(state.cocktails)
             window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify([
                 ...state.cocktails,
                 cocktail
