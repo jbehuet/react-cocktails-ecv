@@ -20,7 +20,7 @@ export default function reducer(state, action) {
                 pending: false,
                 cocktail: action.payload
             }
-        case types.FETCH_COCKTAIL:
+        case types.FETCH_COCKTAIL_ERROR:
             return {
                 ...state,
                 pending: false,
