@@ -8,7 +8,7 @@ export function Menu() {
     return (
         <nav className="mobile-bottom-nav">
             <div className="item" onClick={() => history.push('/')}>
-                <div className={`item-content ${location.pathname === '/' && 'active'}`}>
+                <div className={`item-content ${(location.pathname === '/' || location.pathname.indexOf('/cocktail/') === 0 ) && 'active'}`}>
                     <i className="fas fa-cocktail"></i>
                     Cocktail
                 </div>

@@ -1,10 +1,10 @@
-import { LikeButton, RefreshButton } from '../buttons';
+import { LikeButton, RefreshButton, RemoveButton } from '../buttons';
 import { Loader } from '../loader/Loader';
 import './Card.css';
 
 const STR_INGREDIENT = "strIngredient";
 
-export function Card({ cocktail, onLike, onRetry, isLoading }) {
+export function Card({ cocktail, onLike, onRetry, onRemove, isLoading }) {
     const getIngredients = () => {
         return Object.keys(cocktail)
             .filter(key => key.startsWith(STR_INGREDIENT))
@@ -42,8 +42,9 @@ export function Card({ cocktail, onLike, onRetry, isLoading }) {
                     }
                 </div>
             </div>
-            <LikeButton onClick={() => onLike(cocktail)} />
-            <RefreshButton onClick={onRetry} />
+            {onLike && <LikeButton onClick={() => onLike(cocktail)} />}
+            {onRetry && <RefreshButton onClick={onRetry} />}
+            {onRemove && <RemoveButton onClick={() => onRemove(cocktail)} />}
         </div>
     )
 

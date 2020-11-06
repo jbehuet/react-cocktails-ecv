@@ -3,7 +3,7 @@ import { FavoritesList } from "../components/favoritesList/FavoritesList";
 import { CocktailsContext } from "../domain/cocktails.store";
 
 export default function Favorites() {
-    const { state, dispatch, likeCocktail, removeCocktail } = useContext(CocktailsContext);
+    const { state, removeCocktail } = useContext(CocktailsContext);
 
     return (
         <>

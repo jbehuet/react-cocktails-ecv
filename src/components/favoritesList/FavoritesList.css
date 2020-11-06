@@ -15,3 +15,8 @@
   float: right;
   cursor: pointer;
 }
+
+.favorites-item > a {
+  color: #00a896;
+  text-decoration: none;
+}
