@@ -34,6 +34,11 @@ export default function reducer(state, action) {
                     action.payload
                 ]
             }
+        case types.REMOVE_COCKTAIL:
+            return {
+                ...state,
+                cocktails : state.cocktails.filter(cocktail => cocktail.idDrink !== action.payload.idDrink)
+            }
         default:
             return state;
     }

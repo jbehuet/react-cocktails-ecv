@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { likeCocktail } from '../domain/cocktails.actions';
+import { likeCocktail, removeCocktail } from '../domain/cocktails.actions';
 import { default as CocktailReducer, initialState } from '../domain/cocktails.reducer';
 
 const LOCAL_STORAGE_KEY = "cocktails";
@@ -17,7 +17,7 @@ export function useCocktailsStorage(initialValue) {
             }
         })()
     });
-    
+
 
     const like = cocktail => {
         try {
@@ -31,5 +31,14 @@ export function useCocktailsStorage(initialValue) {
         }
     };
 
-    return [state, dispatch, like];
+    const remove = cocktail => {
+        try {
+            window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state.cocktails.filter(c => c.idDrink !== cocktail.idDrink)));
+            dispatch(removeCocktail(cocktail));
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    return [state, dispatch, like, remove];
 }
