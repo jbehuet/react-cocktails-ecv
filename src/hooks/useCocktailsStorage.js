@@ -17,6 +17,7 @@ export function useCocktailsStorage(initialValue) {
             }
         })()
     });
+    
 
     const like = cocktail => {
         try {
@@ -30,5 +31,5 @@ export function useCocktailsStorage(initialValue) {
         }
     };
 
-    return [state.cocktails, like];
+    return [state, dispatch, like];
 }

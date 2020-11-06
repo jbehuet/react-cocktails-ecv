@@ -1,27 +1,24 @@
-import { useEffect, useReducer } from 'react';
-
-import { useCocktailsStorage } from '../hooks/useCocktailsStorage';
+import { useEffect, useContext } from 'react';
 
 import { Card } from '../components/card/Card';
 
 import { fetchCocktail } from '../domain/cocktails.service';
-import { default as CocktailReducer, initialState } from '../domain/cocktails.reducer';
+import { CocktailsContext } from '../domain/cocktails.store';
 
 export default function Home() {
-    const [state, dispatch] = useReducer(CocktailReducer, initialState);
-    const [cocktails, likeCocktail] = useCocktailsStorage([])
+    const {state, dispatch, likeCocktail} = useContext(CocktailsContext);
 
     const onLike = (cocktail) => {
         likeCocktail(cocktail);
     }
 
     const retry = () => {
-        fetchCocktail(dispatch, cocktails);
+        fetchCocktail(dispatch, state.cocktails);
     }
 
     useEffect(() => {
-        fetchCocktail(dispatch, cocktails);
-    }, [cocktails])
+        fetchCocktail(dispatch, state.cocktails);
+    }, [dispatch, state.cocktails])
 
     return (
         <Card
