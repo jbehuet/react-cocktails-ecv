@@ -6,7 +6,10 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "nedb-promises": "^4.1.0",
+    "node-fetch": "^2.6.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -14,7 +17,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start:server": "nodemon --exec babel-node server/index.js",
+    "start:server": "nodemon --ignore 'src/*' --ignore 'public/*' --exec babel-node server/index.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -43,5 +46,6 @@
     "@babel/node": "^7.12.6",
     "@babel/preset-env": "^7.12.1",
     "nodemon": "^2.0.6"
-  }
+  },
+  "proxy": "http://localhost:8000"
 }

@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 import './FavoritesList.css';
 
-export function FavoritesList({ cocktails, onRemove }) {
+export function FavoritesList({ favorites, onRemove }) {
 
     return (
         <ul className="favorites">
-            {cocktails.map(cocktail =>
-                <li key={cocktail.idDrink} className="favorites-item">
-                    <Link to={`/cocktail/${cocktail.idDrink}`}>{cocktail.strDrink}</Link>
-                    <span onClick={() => onRemove(cocktail)}><i className="fas fa-trash"></i></span>
+            {favorites.map(favorite =>
+                <li key={favorite.id} className="favorites-item">
+                    <Link to={`/cocktail/${favorite.id}`}>{favorite.name}</Link>
+                    <span onClick={() => onRemove(favorite)}><i className="fas fa-trash"></i></span>
                 </li>
             )}
         </ul>

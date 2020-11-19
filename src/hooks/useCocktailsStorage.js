@@ -1,6 +1,6 @@
 import { useReducer } from "react";
-import { likeCocktail, removeCocktail } from '../domain/cocktails.actions';
-import { default as CocktailReducer, initialState } from '../domain/cocktails.reducer';
+import { likeCocktail, removeCocktail } from '../domain/cocktails/cocktails.actions';
+import { default as CocktailReducer, initialState } from '../domain/cocktails/cocktails.reducer';
 
 const LOCAL_STORAGE_KEY = "cocktails";
 

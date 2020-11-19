@@ -3,31 +3,32 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import { Card } from '../components/card/Card';
 
-import { fetchCocktail, fetchCocktailById } from '../domain/cocktails.service';
-import { CocktailsContext } from '../domain/cocktails.store';
+import { ApplicationContext } from '../domain/application.store';
+import { fetchCocktail, fetchCocktailById } from '../domain/cocktail/cocktail.actions';
+import { addToFavorites, removeFromFavorites } from '../domain/favorites/favorites.actions';
 
 export default function Home() {
-    const { state, dispatch, likeCocktail, removeCocktail } = useContext(CocktailsContext);
+    const { state, dispatch } = useContext(ApplicationContext);
     const { id } = useParams();
     const history = useHistory();
-    
+
     const onLike = (cocktail) => {
-        likeCocktail(cocktail);
+        addToFavorites(dispatch, cocktail);
     }
 
     const retry = () => {
-        fetchCocktail(dispatch, state.cocktails);
+        fetchCocktail(dispatch, state.favorites);
     }
 
     const remove = (cocktail) => {
-        removeCocktail(cocktail);
+        removeFromFavorites(dispatch, cocktail.idDrink);
         history.push('/')
     }
 
     useEffect(() => {
         if (id) fetchCocktailById(dispatch, id)
-        else fetchCocktail(dispatch, state.cocktails);
-    }, [dispatch, state.cocktails, id])
+        else fetchCocktail(dispatch, state.favorites);
+    }, [dispatch, state.favorites, id])
 
     return (
         <Card

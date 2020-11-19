@@ -1,6 +1,8 @@
 import express from 'express';
+var cors = require('cors')
 import HTTPCode from './constants/httpCode';
-import CocktailRouter from './routes/cocktails.route';
+import FavoritesRouter from './routes/favorites.route';
+import CocktailRouter from './routes/cocktail.route';
 
 const PORT = 8000;
 
@@ -10,7 +12,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Setup nos routes
-app.use('/api/cocktails/favorites', CocktailRouter);
+app.use('/api/favorites', FavoritesRouter);
+app.use('/api/cocktail', CocktailRouter);
 
 
 app.get("/", ({ res }) => {

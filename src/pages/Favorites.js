@@ -1,14 +1,23 @@
-import { useContext } from "react";
+import { useEffect, useContext } from "react";
+
 import { FavoritesList } from "../components/favoritesList/FavoritesList";
-import { CocktailsContext } from "../domain/cocktails.store";
+
+import { ApplicationContext } from '../domain/application.store';
+import { fetchFavorites } from "../domain/favorites/favorites.actions";
+
 
 export default function Favorites() {
-    const { state, removeCocktail } = useContext(CocktailsContext);
+    const { state, dispatch } = useContext(ApplicationContext);
+
+    useEffect(() => {
+        fetchFavorites(dispatch);
+    }, [dispatch])
+
 
     return (
         <>
             <h1 className="title">Favorites</h1>
-            <FavoritesList cocktails={state.cocktails} onRemove={removeCocktail} />
+            <FavoritesList favorites={state.favorites} onRemove={() => { }} />
         </>
     )
 }
