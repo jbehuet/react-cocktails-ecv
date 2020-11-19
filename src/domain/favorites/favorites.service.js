@@ -1,5 +1,3 @@
-import { addFavoriteSuccess, removeFavoriteSuccess, favoriteError, fetchFavoriteSuccess } from './favorites.actions';
-
 export function getFavorites() {
     return fetch('/api/favorites').then(res => res.json());
 }
