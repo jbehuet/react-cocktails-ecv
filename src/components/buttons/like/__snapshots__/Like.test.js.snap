@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Like button component renders correctly 1`] = `
+<button
+  className="like"
+  onClick={[Function]}
+>
+  <i
+    className="fas fa-heart"
+  />
+</button>
+`;

@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component renders correctly when is Loading 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-header"
+  />
+  <div
+    className="card-body"
+  >
+    <div
+      className="text"
+    >
+      <div
+        className="loader"
+      >
+        Loading...
+      </div>
+    </div>
+  </div>
+  <button
+    className="like"
+    onClick={[Function]}
+  >
+    <i
+      className="fas fa-heart"
+    />
+  </button>
+  <button
+    className="refresh"
+    onClick={[Function]}
+  >
+    <i
+      className="fas fa-redo-alt"
+    />
+  </button>
+</div>
+`;
+
+exports[`Card component renders correctly with like button and retry 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-header"
+  >
+    <img
+      alt="Kool-Aid Shot"
+      src="https://www.thecocktaildb.com/images/media/drink/fegm621503564966.jpg"
+    />
+  </div>
+  <div
+    className="card-body"
+  >
+    <div
+      className="text"
+    >
+      <h1>
+        Kool-Aid Shot
+      </h1>
+      <span
+        className="badge"
+      >
+        Shot
+      </span>
+      <div
+        className="soft"
+      />
+      <ul
+        className="ingredients-list"
+      >
+        <li>
+          1 shot  Vodka
+        </li>
+      </ul>
+    </div>
+  </div>
+  <button
+    className="like"
+    onClick={[Function]}
+  >
+    <i
+      className="fas fa-heart"
+    />
+  </button>
+  <button
+    className="refresh"
+    onClick={[Function]}
+  >
+    <i
+      className="fas fa-redo-alt"
+    />
+  </button>
+</div>
+`;
+
+exports[`Card component renders correctly with remove button 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-header"
+  >
+    <img
+      alt="Kool-Aid Shot"
+      src="https://www.thecocktaildb.com/images/media/drink/fegm621503564966.jpg"
+    />
+  </div>
+  <div
+    className="card-body"
+  >
+    <div
+      className="text"
+    >
+      <h1>
+        Kool-Aid Shot
+      </h1>
+      <span
+        className="badge"
+      >
+        Shot
+      </span>
+      <div
+        className="soft"
+      />
+      <ul
+        className="ingredients-list"
+      >
+        <li>
+          1 shot  Vodka
+        </li>
+      </ul>
+    </div>
+  </div>
+  <button
+    className="remove"
+    onClick={[Function]}
+  >
+    <i
+      className="fas fa-trash"
+    />
+  </button>
+</div>
+`;

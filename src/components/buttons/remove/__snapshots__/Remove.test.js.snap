@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Remove button component renders correctly 1`] = `
+<button
+  className="remove"
+  onClick={[Function]}
+>
+  <i
+    className="fas fa-trash"
+  />
+</button>
+`;

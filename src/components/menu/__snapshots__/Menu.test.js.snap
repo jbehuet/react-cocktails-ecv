@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu component renders correctly 1`] = `
+<nav
+  className="mobile-bottom-nav"
+>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <div
+      className="item-content false"
+    >
+      <i
+        className="fas fa-cocktail"
+      />
+      Cocktail
+    </div>
+  </div>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <div
+      className="item-content false"
+    >
+      <i
+        className="fas fa-list-alt"
+      />
+      Favorites
+    </div>
+  </div>
+</nav>
+`;

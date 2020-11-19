@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorites List component renders correctly with favorites 1`] = `
+<ul
+  className="favorites"
+>
+  <li
+    className="favorites-item"
+  >
+    <a
+      href="/cocktail/13190"
+      onClick={[Function]}
+    >
+      Kool-Aid Shot
+    </a>
+    <span
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-trash"
+      />
+    </span>
+  </li>
+</ul>
+`;
+
+exports[`Favorites List component renders correctly without favorites 1`] = `
+<ul
+  className="favorites"
+/>
+`;
