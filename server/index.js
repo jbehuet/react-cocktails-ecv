@@ -10,6 +10,7 @@ const app = express();
 // Middleware d'ajout du body
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 
 // Setup nos routes
 app.use('/api/favorites', FavoritesRouter);
