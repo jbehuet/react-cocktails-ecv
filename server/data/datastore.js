@@ -1,4 +1,6 @@
 import Datastore from 'nedb-promises';
-const db = Datastore.create('./server/store.db');
+const users = Datastore.create('./server/data/users.db');
+const favorites = Datastore.create('./server/data/favorites.db');
+const db = { favorites, users }
 
 export default db;
