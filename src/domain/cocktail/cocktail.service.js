@@ -1,6 +1,13 @@
 
 export function getCocktail(favorites) {
     return fetch('/api/cocktail')
+        .then(async res => {
+            if (res.status !== 200 && res.status !== 201) {
+                const { message } = await res.json()
+                throw new Error(message)
+            }
+            return res
+        })
         .then(res => res.json())
         .then(cocktail => {
             if (favorites.find(f => f.id === cocktail.idDrink)) {
@@ -13,5 +20,13 @@ export function getCocktail(favorites) {
 }
 
 export function getCocktailById(cocktailID) {
-    return fetch(`/api/cocktail/${cocktailID}`).then(res => res.json());
+    return fetch(`/api/cocktail/${cocktailID}`)
+        .then(async res => {
+            if (res.status !== 200 && res.status !== 201) {
+                const { message } = await res.json()
+                throw new Error(message)
+            }
+            return res
+        })
+        .then(res => res.json());
 }
